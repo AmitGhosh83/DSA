@@ -23,20 +23,15 @@ class LinkedList:
 
     # WRITE HAS_LOOP METHOD HERE #
     def has_loop(self):
-        fast = self.head
-        slow = self.head
-        
-        while (fast and fast.next):
+        if self.head is None:
+            return None
+        slow = fast = self.head
+        while(fast.next):
             slow = slow.next
             fast = fast.next.next
-            if (fast == slow):
+            if (slow == fast):
                 return True
-            
-        return False
-
-    
-    
-    
+        return False    
     
 my_linked_list_1 = LinkedList(1)
 my_linked_list_1.append(2)
