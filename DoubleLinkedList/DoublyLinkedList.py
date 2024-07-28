@@ -26,12 +26,12 @@ class DoublyLinkedList:
         if self.head  is None:
             self.head = new_node
             self.tail = new_node
-            self.length+= 1
+            self.length += 1
         else:
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
-            self.length +=1 
+            self.length += 1 
         return True         
 
 my_doubly_linked_list = DoublyLinkedList(5)   
