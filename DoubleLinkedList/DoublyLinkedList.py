@@ -28,9 +28,9 @@ class DoublyLinkedList:
             self.tail = new_node
             self.length += 1
         else:
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            self.tail = new_node
+            self.tail.next = new_node # connect tail.next to the new node
+            new_node.prev = self.tail # connect next.prev to tail
+            self.tail = new_node # make new node the new tail
             self.length += 1 
         return True         
 
