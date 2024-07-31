@@ -130,6 +130,20 @@ class DoublyLinkedList:
                 temp = temp.prev
         return temp           
 
+    def set_value(self, index, value):
+        if( index < 0 or index >= self.length):
+            return None
+        
+        if ( index < self.length/2):
+            temp = self.head
+            for i in range(index):
+                temp= temp.next
+        else: 
+            temp = self.tail
+            for i in range(self.length -1, index, -1):
+                temp = temp.prev
+        temp.value = value
+        return True
 
 
 
@@ -143,5 +157,6 @@ my_doubly_linked_list.print_list()
 #my_doubly_linked_list.pop()  
 #my_doubly_linked_list.prepend(9)
 #my_doubly_linked_list.pop_first()
-my_doubly_linked_list.get(3)
+#my_doubly_linked_list.get(3)
+my_doubly_linked_list.set_value(3,9)
 my_doubly_linked_list.print_list()  
