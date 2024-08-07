@@ -119,9 +119,9 @@ class DoublyLinkedList:
     def get(self,index):
         if( index < 0 or index >= self.length):
             return None
-    
+        temp = self.head   
         if ( index < self.length/2):
-            temp = self.head
+            
             for i in range(index):
                 temp= temp.next
         else: 
@@ -131,7 +131,7 @@ class DoublyLinkedList:
         return temp           
 
     def set_value(self, index, value):
-        if( index < 0 or index >= self.length):
+        if( index < 0 or index >=self.length):
             return None
         
         if ( index < self.length/2):
@@ -145,8 +145,41 @@ class DoublyLinkedList:
         temp.value = value
         return True
 
+    def insert(self, index, value):
+        if( index < 0 or index > self.length):
+            return None
+        if index == 0:
+            self.prepend(value)
+        if index == self.length:
+            self.append(value)
+        else:
+            temp = self.get(index-1)
+            new_node = Node(value)
+            after = temp.next
+            temp.next = new_node
+            new_node.prev = temp
+            new_node.next = after
+            after.prev = new_node
+            self.length += 1
+        return True        
 
-
+    def remove(self, index):
+        if( index < 0 or index > self.length):
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length:
+            return self.pop()
+        else:
+            temp = self.get(index-1)
+            after = temp.next
+            before = temp.prev
+            before.next = after
+            after.prev = before
+            temp.next = None
+            temp.prev = None
+            self.length -= 1
+        return temp 
 
 my_doubly_linked_list = DoublyLinkedList(5)   
 my_doubly_linked_list.append(4)
@@ -158,5 +191,7 @@ my_doubly_linked_list.print_list()
 #my_doubly_linked_list.prepend(9)
 #my_doubly_linked_list.pop_first()
 #my_doubly_linked_list.get(3)
-my_doubly_linked_list.set_value(3,9)
+#my_doubly_linked_list.set_value(3,9)
+#my_doubly_linked_list.insert(4,6)
+my_doubly_linked_list.remove(5)
 my_doubly_linked_list.print_list()  
