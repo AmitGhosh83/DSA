@@ -147,11 +147,11 @@ class DoublyLinkedList:
 
     def insert(self, index, value):
         if( index < 0 or index > self.length):
-            return None
+            return False
         if index == 0:
-            self.prepend(value)
+            return self.prepend(value)
         if index == self.length:
-            self.append(value)
+            return self.append(value)
         else:
             before = self.get(index-1)
             new_node = Node(value)
