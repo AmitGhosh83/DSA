@@ -119,11 +119,10 @@ class DoublyLinkedList:
     def get(self,index):
         if( index < 0 or index >= self.length):
             return None
-        temp = self.head   
         if ( index < self.length/2):
-            
+            temp = self.head
             for i in range(index):
-                temp= temp.next
+                temp = temp.next
         else: 
             temp = self.tail
             for i in range(self.length -1, index, -1):
@@ -134,14 +133,15 @@ class DoublyLinkedList:
         if( index < 0 or index >=self.length):
             return None
         
-        if ( index < self.length/2):
-            temp = self.head
-            for i in range(index):
-                temp= temp.next
-        else: 
-            temp = self.tail
-            for i in range(self.length -1, index, -1):
-                temp = temp.prev
+        # if ( index < self.length/2):
+        #     temp = self.head
+        #     for i in range(index):
+        #         temp= temp.next
+        # else: 
+        #     temp = self.tail
+        #     for i in range(self.length -1, index, -1):
+        #         temp = temp.prev
+        temp = self.get(index)
         temp.value = value
         return True
 
@@ -153,11 +153,11 @@ class DoublyLinkedList:
         if index == self.length:
             self.append(value)
         else:
-            temp = self.get(index-1)
+            before = self.get(index-1)
             new_node = Node(value)
-            after = temp.next
-            temp.next = new_node
-            new_node.prev = temp
+            after = before.next
+            before.next = new_node
+            new_node.prev = before
             new_node.next = after
             after.prev = new_node
             self.length += 1
@@ -168,10 +168,11 @@ class DoublyLinkedList:
             return None
         if index == 0:
             return self.pop_first()
-        if index == self.length:
+        # 0 based index, so self.length -1 is the last element
+        if index == self.length - 1: 
             return self.pop()
         else:
-            temp = self.get(index-1)
+            temp = self.get(index)
             after = temp.next
             before = temp.prev
             before.next = after
@@ -181,17 +182,18 @@ class DoublyLinkedList:
             self.length -= 1
         return temp 
 
-my_doubly_linked_list = DoublyLinkedList(5)   
-my_doubly_linked_list.append(4)
-my_doubly_linked_list.append(7)
-my_doubly_linked_list.append(1)
+my_doubly_linked_list = DoublyLinkedList(1)   
+my_doubly_linked_list.append(2)
 my_doubly_linked_list.append(3)
+my_doubly_linked_list.append(4)
+my_doubly_linked_list.append(5)
 my_doubly_linked_list.print_list()  
 #my_doubly_linked_list.pop()  
 #my_doubly_linked_list.prepend(9)
 #my_doubly_linked_list.pop_first()
 #my_doubly_linked_list.get(3)
-#my_doubly_linked_list.set_value(3,9)
+my_doubly_linked_list.set_value(3,9)
 #my_doubly_linked_list.insert(4,6)
-my_doubly_linked_list.remove(5)
+#my_doubly_linked_list.remove(5)
+print("\nAfter update:")
 my_doubly_linked_list.print_list()  
