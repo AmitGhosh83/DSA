@@ -3,6 +3,7 @@ def repeating_item(list1, list2):
     for i in list1:
         my_dict[i] = True
     for j in list2:
+            # lookup j in dict
             if j in my_dict:
                  return True
     return False
