@@ -1,0 +1,33 @@
+## By Value
+def find_duplicates_value(nums):
+    repeating_list = []
+    my_dict1 ={}
+    for i in nums:
+        if i not in my_dict1:
+            my_dict1[i]= i
+        else:
+            repeating_list.append(i)
+    return repeating_list            
+
+
+## By Frequency 
+def find_duplicates(nums):
+    repeating_list = []
+    my_dict1 = {}
+
+    for i in nums: 
+        my_dict1[i] = my_dict1.get( i, 0 ) + 1
+    for i, count in my_dict1.items():
+        if count > 1:
+            repeating_list.append(i)
+    return repeating_list            
+
+
+
+print ( find_duplicates([1, 2, 3, 4, 5]) )
+print ( find_duplicates([1, 1, 2, 2, 3]) )
+print ( find_duplicates([1, 1, 1, 1, 1]) )
+print ( find_duplicates([1, 2, 3, 3, 3, 4, 4, 5]) )
+print ( find_duplicates([1, 1, 2, 2, 2, 3, 3, 3, 3]) )
+print ( find_duplicates([1, 1, 1, 2, 2, 2, 3, 3, 3, 3]) )
+print ( find_duplicates([]) )
