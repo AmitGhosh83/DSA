@@ -1,0 +1,62 @@
+# users : dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+# print (list(users.values()), users.keys())
+
+
+#my_dict1 = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+# # popped_item = my_dict1.pop(6)
+# popped_item = my_dict1.pop(1)
+# print(popped_item)
+# print(my_dict1)
+
+# my_dict1 = {0: ['Amit','b'], 1: ['Linda','d'], 2: ['Emma','f']}
+# my_dict2 = my_dict1.copy()
+# print(my_dict1, id(my_dict1))
+# print(my_dict2,id(my_dict2))
+
+# my_dict2[0][0] = '!!!'
+
+# # Shallow copy, the dictionaries are unique, but the 
+# # references inside ['Amit', 'b']are not unique
+# # they still point to the same memory address
+# ## Check Deep Copy
+# print(my_dict1,id(my_dict1))
+# print(my_dict2,id(my_dict2))
+
+# users: dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+# print(users.get(1))
+# # default value if key is not present, doest append to dictionary
+# print(users.get(999, 'None'))
+# print(users)
+
+
+# users: dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+# print(users.get(9,'Joey'))
+# ##get: default value if key is not present, doest append to dictionary
+# print(users.setdefault(999, 'Unknown'))
+# ##setdefault: appends to the dictionary if key missing, if present ignores
+# print(users) 
+
+users: dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+## updates existing key, 
+users.update({2: 'Ed'})
+print(users) 
+#adds new key value pair as well
+users.update({99: 'James'})
+print(users) 
+
+
+# people = ['Amit', 'Linda', 'Emma', 'Joey']
+# for str in people:
+#     print(str)
+
+# my_dict1: dict = dict.fromkeys(people, 'Unknown')
+# print(my_dict1)
+
+
+# users: dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+# print(users)
+# print(users.items())
+# for k,v in users.items():
+#     print(k,v)
+
+# print(list(users.items()))

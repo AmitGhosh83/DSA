@@ -1,0 +1,19 @@
+def group_anagrams(words):
+    anagram_dict ={}
+    for word in words:
+        sorted_word = ''.join(sorted(word))
+        if sorted_word in anagram_dict:
+            anagram_dict[sorted_word].append(word)
+        else:
+            anagram_dict[sorted_word] = [word]
+    return list(anagram_dict.values())      
+
+
+print("1st set:")
+print( group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]) )
+
+# print("\n2nd set:")
+# print( group_anagrams(["abc", "cba", "bac", "foo", "bar"]) )
+
+# print("\n3rd set:")
+# print( group_anagrams(["listen", "silent", "triangle", "integral", "garden", "ranged"]) )
