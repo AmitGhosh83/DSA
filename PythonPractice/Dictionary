@@ -1,5 +1,13 @@
-# users : dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
-# print (list(users.values()), users.keys())
+users : dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+print (list(users.values()), users.keys())
+for k in users.items():
+    print(k)
+print('\n')
+for k,v in users.items():
+    print(v)
+print('\n')
+for k,v in users.items():
+    print(k,v)
 
 
 #my_dict1 = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
@@ -36,13 +44,13 @@
 # ##setdefault: appends to the dictionary if key missing, if present ignores
 # print(users) 
 
-users: dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
-## updates existing key, 
-users.update({2: 'Ed'})
-print(users) 
-#adds new key value pair as well
-users.update({99: 'James'})
-print(users) 
+# users: dict = {0: 'Amit', 1: 'Linda', 2: 'Emma'}
+# ## updates existing key, 
+# users.update({2: 'Ed'})
+# print(users) 
+# #adds new key value pair as well
+# users.update({99: 'James'})
+# print(users) 
 
 
 # people = ['Amit', 'Linda', 'Emma', 'Joey']

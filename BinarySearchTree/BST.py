@@ -73,10 +73,10 @@ my_BST.insert(21)
 my_BST.insert(77)
 my_BST.insert(92)
 
-print(my_BST.contains(40))
-print(my_BST.contains(1099))
-print(my_BST.contains(1))
-print(my_BST.contains(17))
+print(my_BST.contains(9209))
+# print(my_BST.contains(1099))
+# print(my_BST.contains(1))
+# print(my_BST.contains(17))
 
 
         

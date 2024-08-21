@@ -8,13 +8,18 @@ def first_non_repeating_char(input_string):
     # for c in input_string:
     #     if char_count[c] == 1:
     #         return c
-    return None    
+    return None   
 
-
+# instead of going over the dictionary whose key values 
+# can be misaligned due to invalid input, go over the input string again 
+# and then look for dictionary[char] for frequency so we have the input 
+# order pristine 
 
 
 print( first_non_repeating_char('leetcode') )
 
-print( first_non_repeating_char('hello') )
+print( first_non_repeating_char('geekforgeeks') )
 
 print( first_non_repeating_char('aabbcc') )
+
+## Perform this for a stream instead of finite string

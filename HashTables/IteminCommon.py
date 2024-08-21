@@ -12,3 +12,5 @@ list1 = [1,3,5]
 list2 = [2,4,5]   
 
 print(repeating_item(list1, list2))
+# Use the Dictionary Key as the lookup value
+# thats constant time
