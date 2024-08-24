@@ -1,5 +1,19 @@
 def subarray_sum(nums, target):
-    result_dict = {}
+    result_dict = {0: -1}
+## Why Initialize with {0: -1}
+
+# Handling the Target in the List:
+#Helps with -ve numbers
+    # If the first number in nums is the target, 
+    # current_sum - target would be 0. 
+    # This 0 is already in our dictionary, 
+    # allowing us to find the target right away.
+
+# Serving as a Placeholder for Logic:
+
+    # This initial setup simplifies the for-loop code 
+    # by providing a common starting point for summing 
+    # and comparing
     current_sum = 0
 
     for i in range(len(nums)):
@@ -7,21 +21,37 @@ def subarray_sum(nums, target):
         if (current_sum - target) in result_dict:
             starting_index = result_dict.get(current_sum - target) + 1
             return [ starting_index, i ]
-        result_dict[current_sum] = i
+        result_dict[current_sum] = i 
     return []    
+
+
+def subarray_sum1(nums, target):
+    resulting_dict= {}
+    current_sum = 0
+
+    for i in range(len(nums)):
+        current_sum += nums[i]
+        if current_sum == target:
+            return (0, i)
+        if (current_sum - target) in resulting_dict:
+            starting_index = resulting_dict.get(current_sum - target)+1
+            return [starting_index, i]
+        resulting_dict[current_sum] = i # i is the index
+    return []
+
 
                                                                         
 # nums = [1, 2, 3, 4, 5]
 # target = 9
-# print ( subarray_sum(nums, target) )
+# print ( subarray_sum1(nums, target) )
 
-nums = [-1, 2, 3, -4, 5]
-target = 0
+# nums = [-1, 2, 3, -4, 5]
+# target = 0
+# print ( subarray_sum1(nums, target) )
+
+nums = [2, 3, 4, 5, 6]
+target = 3
 print ( subarray_sum(nums, target) )
-
-# nums = [2, 3, 4, 5, 6]
-# target = 3
-# print ( subarray_sum(nums, target) )
 
 # nums = []
 # target = 0
