@@ -28,6 +28,22 @@ class Graph:
             except ValueError:
                 pass
             return True
+        return False 
+     
+    # Increased efficiecy by moving through the asscoaited edges of the 
+    # to be removed vertex , here D, so D : ['A', 'B', 'C'] 
+        #  A : ['B', 'C', 'D']
+        #  B : ['A', 'D']
+        #  C : ['A', 'D']
+        #  D : ['A', 'B', 'C'] 
+     
+    def remove_vertex(self, vertex):
+        if vertex in self.adj_list.keys():
+            for other_vertex in self.adj_list[vertex]:
+                self.adj_list[other_vertex].remove(vertex)
+            #self.adj_list.popitem('D')
+            del self.adj_list[vertex]
+            return True
         return False    
 
 my_graph = Graph()
@@ -37,9 +53,15 @@ my_graph.add_vertex('C')
 my_graph.add_vertex('D')
 
 my_graph.add_edge('A','B')
-my_graph.add_edge('B','C')
-my_graph.add_edge('C','A')
+# my_graph.add_edge('B','C')
+# my_graph.add_edge('C','A')
+my_graph.add_edge('A','C')
+my_graph.add_edge('A','D')
+my_graph.add_edge('B','D')
+my_graph.add_edge('C','D')
 
-my_graph.remove_edge('A','D')
+my_graph.print_graph()
 
+my_graph.remove_vertex('D')
+print('\n')
 my_graph.print_graph()
