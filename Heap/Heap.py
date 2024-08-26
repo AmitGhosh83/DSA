@@ -20,7 +20,7 @@ class MaxHeap:
         # pointer to the location of the list
         # where the new value is inserted
         current = len(self.heap)-1
-        
+
         # 1. Stop for current to go out of bound as it
             # traverses from child to its subsequent parent every swap
         # 2. Check that the current index value is greater than its 
