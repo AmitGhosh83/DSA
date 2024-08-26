@@ -24,7 +24,7 @@ class MaxHeap:
         # 1. Stop for current to go out of bound as it
             # traverses from child to its subsequent parent every swap
         # 2. Check that the current index value is greater than its 
-            # correspoding parent, if not stop swapping. 
+            # corresponding parent, if not stop swapping. 
         while current > 0 and self.heap[current] > self.heap[self._parent(current)]:
             self._swap(current, self._parent(current))
             current = self._parent(current)
