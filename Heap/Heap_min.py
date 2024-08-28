@@ -1,4 +1,4 @@
-class MaxHeap:
+class MinHeap:
     def __init__(self):
         self.heap = []
 
@@ -27,7 +27,7 @@ class MaxHeap:
             # traverses from child to its subsequent parent every swap
         # 2. Check that the current index value is greater than its 
             # corresponding parent, if not stop swapping. 
-        while current > 0 and self.heap[current] > self.heap[self._parent(current)]:
+        while current > 0 and self.heap[current] < self.heap[self._parent(current)]:
             self._swap(current, self._parent(current))
             current = self._parent(current)
 
@@ -45,49 +45,46 @@ class MaxHeap:
         return max_value
     
     def sink_down(self, index): 
-        max_index = index
+        min_index = index
 
         while True: 
             left_child_index = self._left_child(index)
             right_child_index = self._right_child(index)
 
             if(left_child_index < len(self.heap) and
-                self.heap[left_child_index] > self.heap[max_index]):
-                max_index = left_child_index
+                self.heap[left_child_index] > self.heap[min_index]):
+                min_index = left_child_index
             if (right_child_index < len(self.heap) and
-                self.heap[right_child_index] > self.heap[max_index]):
-                max_index = right_child_index
-            if max_index!= index:
-                self._swap(index, max_index)    
-                index = max_index   
+                self.heap[right_child_index] > self.heap[min_index]):
+                min_index = right_child_index
+            if min_index!= index:
+                self._swap(index, min_index)    
+                index = min_index   
             else: 
                 return     
 
 
-myheap = MaxHeap()
-# myheap.insert(99)       
-# myheap.insert(72)
-# myheap.insert(61)
-# myheap.insert(58) 
-# print (myheap.heap)
+myheap = MinHeap()
+myheap.insert(12)
+myheap.insert(10)
+myheap.insert(8)
+myheap.insert(6) 
+print (myheap.heap) #[6, 8, 10, 12]
 
-# myheap.insert(100)
-# print (myheap.heap)
+# myheap.insert(12)
+# myheap.insert(10)
+# myheap.insert(8)
+# myheap.insert(6)
+# myheap.insert(4)
+# myheap.insert(2)
 
-# myheap.insert(75)
-# print(myheap.heap)
+# print(myheap.heap)  # [2, 6, 4, 12, 8, 10]
 
-myheap.insert(95)
-myheap.insert(75)
-myheap.insert(80)
-myheap.insert(55)
-myheap.insert(60)
-myheap.insert(50)
-myheap.insert(65)
-print(myheap.heap)
+# removed = myheap.remove()
+# print(f'Removed: {removed}, Heap: {myheap.heap}')  # Removed: 2, Heap: [4, 6, 10, 12, 8]
 
-myheap.remove()
-print(myheap.heap)
+# removed = myheap.remove()
+# print(f'Removed: {removed}, Heap: {myheap.heap}')  # Removed: 4, Heap: [6, 8, 10, 12]
 
-myheap.remove()
-print(myheap.heap)
+# removed = myheap.remove()
+# print(f'Removed: {removed}, Heap: {myheap.heap}')  # Removed: 6, Heap: [8, 12, 10]
