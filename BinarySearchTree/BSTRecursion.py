@@ -91,7 +91,7 @@ class BinarySearchTree:
 
     def __r_delete(self, current_node, value):
         if current_node == None:
-            return False
+            return None
         if value < current_node.value:
             current_node.left = self.__r_delete(current_node.left, value)
         elif value > current_node.value:
