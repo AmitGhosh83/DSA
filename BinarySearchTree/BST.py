@@ -48,6 +48,8 @@ class BinarySearchTree:
         return False   
 
     def contains(self, value):
+        if self.root == None:
+            return False
         temp = self.root
         while (temp is not None):
             if value < temp.value:
@@ -73,7 +75,7 @@ my_BST.insert(21)
 my_BST.insert(77)
 my_BST.insert(92)
 
-print(my_BST.contains(9209))
+print(my_BST.contains(92))
 # print(my_BST.contains(1099))
 # print(my_BST.contains(1))
 # print(my_BST.contains(17))
