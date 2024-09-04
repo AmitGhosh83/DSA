@@ -123,42 +123,53 @@ class BinarySearchTree:
         return current_node.value    
 
 
+    def BFS(self):
+        current_node = self.root
+        results = [] #  list to produce the final result
+        queue = [] # working list
+        queue.append(current_node) # always populate for while check to return true
 
-
-    
-
-
-
+        while (len(queue)>0):
+            current_node = queue.pop() # pop the working node from queue to current
+            results.append(current_node.value) # add it to result
+            if current_node.left is not None: # look for current nodes left
+                queue.append(current_node.left) # add it to working list
+            if current_node.right is not None: # look for current nodes left
+                queue.append(current_node.right) # add it to working list
+            # above happens for both left and right child at same level      
+        return results
 
 
 
 my_BST = BinarySearchTree()
 
-# my_BST.insert(47)
-# my_BST.insert (21)
-# my_BST.insert (76)
-# my_BST.insert(18)
-# my_BST.insert(27)
-# my_BST.insert(52)
-# my_BST.insert(82)
+my_BST.insert(47)
+my_BST.insert (21)
+my_BST.insert (76)
+my_BST.insert(18)
+my_BST.insert(27)
+my_BST.insert(52)
+my_BST.insert(82)
 
-my_BST.r_insert(2)
-my_BST.r_insert(1)
-my_BST.r_insert(3)
+print(my_BST.BFS())
 
-print("root =", my_BST.root.value)
-print("root.left =", my_BST.root.left.value)
-print("root.right =", my_BST.root.right.value)
-#print(my_BST.contains(82))
-#print(my_BST.r_contains(3))
+# my_BST.r_insert(2)
+# my_BST.r_insert(1)
+# my_BST.r_insert(3)
 
-print("\nAfter Delete\n")
+# print("root =", my_BST.root.value)
+# print("root.left =", my_BST.root.left.value)
+# print("root.right =", my_BST.root.right.value)
+# #print(my_BST.contains(82))
+# #print(my_BST.r_contains(3))
 
-my_BST.r_delete(3)
+# print("\nAfter Delete\n")
 
-print("root =", my_BST.root.value)
-print("root.left =", my_BST.root.left.value)
-print("root.right =", my_BST.root.right)
+# my_BST.r_delete(3)
+
+# print("root =", my_BST.root.value)
+# print("root.left =", my_BST.root.left.value)
+# print("root.right =", my_BST.root.right)
 # print(my_BST.contains(1099))
 # print(my_BST.contains(1))
 # print(my_BST.contains(17))
