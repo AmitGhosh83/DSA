@@ -140,6 +140,43 @@ class BinarySearchTree:
         return results
 
 
+    def DFS_preorder(self): 
+        #current_node = self.root
+        results = []
+        
+        def traverse(current_node):
+            results.append(current_node.value)
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        traverse(self.root)    
+        return results     
+
+    def DFS_postorder(self):
+        results = []
+
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+            results.append(current_node.value)
+        traverse(self.root)
+        return results
+
+    def DFS_inorder(self): 
+        results = [] 
+
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)                     
+            results.append(current_node.value)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        traverse(self.root)    
+        return results    
+ 
 
 my_BST = BinarySearchTree()
 
@@ -151,8 +188,10 @@ my_BST.insert(27)
 my_BST.insert(52)
 my_BST.insert(82)
 
-print(my_BST.BFS())
-
+print(my_BST.BFS()," : Breadth First Search ")
+print(my_BST.DFS_preorder()," : Depth First Search PreOrder")
+print(my_BST.DFS_postorder()," : Depth First Search PostOrder")
+print(my_BST.DFS_inorder()," : Depth First Search InOrder")
 # my_BST.r_insert(2)
 # my_BST.r_insert(1)
 # my_BST.r_insert(3)
