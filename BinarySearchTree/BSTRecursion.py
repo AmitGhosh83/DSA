@@ -130,7 +130,7 @@ class BinarySearchTree:
         queue.append(current_node) # always populate for while check to return true
 
         while (len(queue)>0):
-            current_node = queue.pop() # pop the working node from queue to current
+            current_node = queue.pop(0) # pop the first element from queue to current
             results.append(current_node.value) # add it to result
             if current_node.left is not None: # look for current nodes left
                 queue.append(current_node.left) # add it to working list
