@@ -14,7 +14,6 @@ class BinarySearchTree:
             self.root = new_node
             return True ## Notice this statement, this is to break out if the tree is getting initialized
         temp = self.root
-
         while(True):
             if(new_node.value == temp):
                 return False
@@ -119,6 +118,8 @@ class BinarySearchTree:
     
     def min_value(self, current_node):
         while current_node.left is not None:
+            # we need the pointer on the leaf node, so that we can retrive its value
+            # if it was current.node is not None, then we couldnt get the value
             current_node = current_node.left
         return current_node.value    
 
