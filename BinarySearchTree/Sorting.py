@@ -37,6 +37,7 @@ class LinkedList:
         if after.value < smallest.value:
           smallest = after
         after = after.next 
+      # Break out of the loop before you compare  
       if temp!= smallest:
           temp.value, smallest.value = smallest.value, temp.value
       temp = temp.next 
