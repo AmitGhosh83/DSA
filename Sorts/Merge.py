@@ -18,7 +18,20 @@ def merge(list1, list2):
             j += 1 
     return combined
 
-list1 = [1,3,5,7]
-list2 = [2,4,6,8]
+def merge_sort(inputlist):
+     if len(inputlist) == 1:
+          return inputlist
+     
+     mid_index = len(inputlist)//2
+     left = merge_sort(inputlist[: mid_index])
+     right = merge_sort(inputlist[mid_index:])
+     sorted_list = merge(left,right)
+     return sorted_list 
+    
 
-print(merge(list1, list2))             
+# list1 = [1,3,5,7]
+# list2 = [2,4,6,8]
+input_list = [3,1,2,7]
+
+# print(merge(list1, list2))  
+print (merge_sort(input_list))           
