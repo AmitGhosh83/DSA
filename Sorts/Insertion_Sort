@@ -7,6 +7,16 @@ def insertion_sort(nums):
         break
   return nums
 
+
+def insertion_sortalgo(nums):
+  for i in range(len(nums)):
+    for j in range(i, 0,-1):
+      if nums[j-1] > nums[j]: 
+        nums[j-1], nums[j] = nums[j], nums[j-1]
+      else:
+        break
+  return nums      
+
 my_list = [2,1,5,9,8]      
-print(insertion_sort(my_list))
+print(insertion_sortalgo(my_list))
         
