@@ -45,7 +45,7 @@ class LinkedList:
   def insertion_sort(self):
     if self.length < 2:
       return
-    # Distribute the list in sorted and unsorted portion
+    # Distribute the list in sorted and unsorted section
     sorted_list_head = self.head
     unsorted_list_head = self.head.next
     sorted_list_head.next = None
