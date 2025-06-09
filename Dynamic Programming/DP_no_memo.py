@@ -8,6 +8,6 @@ def fib(n):
     return fib(n-1) + fib(n-2)
 
 
-n = 30
+n = 35
 print('\nFibonacci of', n, '=', fib(n))
 print('\nCounter:', counter)
