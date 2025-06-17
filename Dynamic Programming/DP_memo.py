@@ -12,6 +12,8 @@ def fib(n):
     memo[n] = fib(n-1) + fib(n-2)
     return memo[n]
 
-n = 35
+# Time complexity 0(n)-1
+
+n = 10
 print('\nFibonacci of', n, '=', fib(n))
 print('\nCounter:', counter)

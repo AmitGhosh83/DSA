@@ -7,6 +7,8 @@ def fib(n):
         return n
     return fib(n-1) + fib(n-2)
 
+# Time complexity 0(2 ^n)
+
 
 n = 35
 print('\nFibonacci of', n, '=', fib(n))
